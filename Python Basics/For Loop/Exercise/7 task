@@ -1,0 +1,28 @@
+groups =  int(input())
+g1 = 0
+g2 = 0
+g3 = 0
+g4 = 0
+g5 = 0
+people = 0
+
+for _ in range(groups):
+    climbers = int(input())
+    people += climbers
+    if climbers <= 5:
+        g1 += climbers
+    elif climbers <= 12:
+        g2 += climbers
+    elif climbers <= 25:
+        g3 += climbers
+    elif climbers <= 40:
+        g4 += climbers
+    else:
+        g5 += climbers
+
+print(f'{g1 / people * 100:.2f}%')
+print(f'{g2 / people * 100:.2f}%')
+print(f'{g3 / people * 100:.2f}%')
+print(f'{g4 / people * 100:.2f}%')
+print(f'{g5 / people * 100:.2f}%')
+
