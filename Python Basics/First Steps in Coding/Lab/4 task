@@ -1,0 +1,6 @@
+number= float(input())
+inches_to_cm= 2.54
+
+result= inches_to_cm * number
+
+print(result)
