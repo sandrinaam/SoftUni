@@ -1,0 +1,20 @@
+nylon_needed = int(input())
+paint_needed = int(input())
+thiner_needed = int(input())
+hour_needed = int(input())
+
+nylon_price = 1.50
+paint_price = 14.50
+thiner_price = 5
+bags_price = 0.40
+
+nylon_sum = (nylon_needed + 2) * nylon_price
+paint_sum = (paint_needed + paint_needed * 10 / 100) * paint_price
+thiner_sum = thiner_needed * thiner_price
+sum_total = nylon_sum + paint_sum + thiner_sum + bags_price
+sum_workers = ( sum_total * 30 / 100 ) * hour_needed
+final_price = sum_total + sum_workers
+print(final_price)
+
+
+
