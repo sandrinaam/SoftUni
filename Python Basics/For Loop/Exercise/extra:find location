@@ -1,0 +1,23 @@
+import phonenumbers
+from phonenumbers import PhoneNumberFormat, PhoneNumberType, geocoder, carrier , timezone
+from PycharmProjects_For_Loop.py.geocode import d
+
+number = phonenumbers.parse('+359884780398' ,region = None)
+geocode_data = data
+
+print('Is valid number:' , phonenumbers.is_valid_number(number))
+print('International format:' , phonenumbers.format_number(number, PhoneNumberFormat.INTERNATIONAL))
+print('National format:' , phonenumbers.format_number(number , PhoneNumberFormat.NATIONAL))
+
+num_type = phonenumbers.number_type(number)
+
+if num_type == PhoneNumberType.MOBILE:
+    print('This is a mobile number')
+else:
+    print('This is a landline number')
+
+print()
+print('Region:' , geocoder.description_for_valid_number(number, 'en'))
+print('Carrier:' , carrier.name_for_number(number, 'en'))
+print('Time zone:' , timezone.time_zones_for_number(number))
+print('Current Geocode Location:' , geocode_data)
