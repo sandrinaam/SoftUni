@@ -1,0 +1,47 @@
+trip_price = float(input())
+puzzles_number = int(input())
+dolls_number = int(input())
+bear_number = int(input())
+minions_number = int(input())
+trucks_number = int(input())
+
+puzzles = 2.60
+dolls = 3
+bears = 4.10
+trucks = 2
+minion = 8.20
+
+puzzles_price = puzzles * puzzles_number
+trucks_price = trucks * trucks_number
+dolls_price = dolls * dolls_number
+bears_price = bears * bear_number
+minion_price = minion * minions_number
+
+total_order_price = puzzles_price + trucks_price + dolls_price + bears_price + minion_price
+total_toys_quantity = puzzles_number + trucks_number + dolls_number + bear_number + minions_number
+
+if total_toys_quantity >= 50:
+    total_order_price *= 0.75
+
+rent = total_order_price * 0.10
+profit = total_order_price - rent
+
+difference = abs(profit - trip_price)
+
+if profit >= trip_price:
+   print (f'Yes! {difference:.2f} lv left.')
+
+else:
+   print(f'Not enough money! {difference:.2f} lv needed.')
+
+
+
+
+
+
+
+
+
+
+
+
