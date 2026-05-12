@@ -1,0 +1,16 @@
+actor_name = input()
+start_points = float(input())
+raters = int(input())
+
+for _ in range(raters):
+    rater_name = input()
+    points_given = float(input())
+
+    start_points += (len(rater_name) * points_given) / 2
+
+    if start_points > 1250.5:
+        print(f'Congratulations, {actor_name} got a nominee for leading role with {round(start_points, 1)}!')
+        break
+
+else:
+    print(f'Sorry, {actor_name} you need {round(1250.5 - start_points, 1)} more!')
