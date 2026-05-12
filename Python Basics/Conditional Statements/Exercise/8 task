@@ -1,0 +1,17 @@
+from math import ceil
+serial = input()
+episode_duration = int(input())
+rest_time = int(input())
+
+lunch_time = rest_time / 8
+break_time = rest_time / 4
+free_time = rest_time - lunch_time - break_time
+
+difference = abs(free_time - episode_duration)
+
+if free_time >= episode_duration:
+    print(f'You have enough time to watch {serial} and'
+          f' left with {ceil(difference)} minutes free time.')
+
+else:
+    print(f"You don't have enough time to watch {serial}, you need {ceil(difference)} more minutes.")
