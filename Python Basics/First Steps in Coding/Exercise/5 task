@@ -1,0 +1,17 @@
+pens_number = int(input())
+markers_number = int(input())
+cleaner_litres = int(input())
+discount = int(input())
+
+pens_price = 5.80
+markers_price = 7.20
+cleaner_price = 1.20
+
+pens_totalprice = pens_number * pens_price
+markers_totalprice = markers_number * markers_price
+cleaner_totalprice = cleaner_price * cleaner_litres
+total_price = pens_totalprice + markers_totalprice + cleaner_totalprice
+discount_final = discount / 100
+price_with_discount = total_price - (total_price * discount_final)
+
+print(price_with_discount)
