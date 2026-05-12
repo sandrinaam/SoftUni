@@ -1,0 +1,26 @@
+from unittest import result
+
+tournament = int(input())
+total_points = int(input())
+points_from_tournament = 0
+wins = 0
+
+for _ in range(tournament):
+    result = input()
+
+    if result == "W":
+        total_points += 2000
+        points_from_tournament += 2000
+        wins += 1
+    elif result == "F":
+        total_points += 1200
+        points_from_tournament += 1200
+    elif result == "SF":
+        total_points += 720
+        points_from_tournament += 720
+
+percentage = (wins / tournament) * 100
+
+print(f'Final points: {total_points}')
+print(f'Average points: {points_from_tournament // tournament}')
+print(f'{percentage:.2f}%')
