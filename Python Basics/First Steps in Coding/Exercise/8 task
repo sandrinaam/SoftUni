@@ -1,0 +1,9 @@
+tax_basketball = int(input())
+
+shoes_price = tax_basketball - (tax_basketball * 40 / 100)
+clothes_price = shoes_price - (shoes_price * 20 / 100)
+ball_price = clothes_price / 4
+equipment_price = ball_price / 5
+final_price = tax_basketball + shoes_price + clothes_price + ball_price + equipment_price
+print(final_price)
+
