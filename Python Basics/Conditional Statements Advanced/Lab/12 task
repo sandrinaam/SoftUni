@@ -1,0 +1,46 @@
+city = input()
+sale_number = float(input())
+comission = 0
+
+if city == "Sofia":
+    if sale_number < 0:
+        print("error")
+        exit()
+    elif 0 < sale_number <= 500:
+        comission = 0.05
+    elif 500 < sale_number <= 1000:
+        comission = 0.07
+    elif 1000 < sale_number <= 10000:
+        comission = 0.08
+    else:
+        comission = 0.12
+elif city == "Varna":
+    if sale_number < 0:
+        print("error")
+        exit()
+    elif 0 < sale_number <= 500:
+        comission = 0.045
+    elif 500 < sale_number <= 1000:
+        comission = 0.075
+    elif 1000 < sale_number <= 10000:
+        comission = 0.1
+    else:
+        comission = 0.13
+elif city == "Plovdiv":
+    if sale_number < 0:
+        print("error")
+        exit()
+    elif 0 < sale_number <= 500:
+        comission = 0.055
+    elif 500 < sale_number <= 1000:
+        comission = 0.08
+    elif 1000 < sale_number <= 10000:
+        comission = 0.12
+    else:
+        comission = 0.145
+else:
+    print("error")
+    exit()
+bonus = sale_number * comission
+print(f'{bonus:.2f}')
+
