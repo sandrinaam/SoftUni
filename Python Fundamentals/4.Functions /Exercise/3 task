@@ -1,0 +1,13 @@
+def characters_in_range(first, second):
+    list_char = []
+    for character in range(ord(first)+1, ord(second)):
+        list_char.append(chr(character))
+    final_result = (' '.join(list_char))
+    return final_result
+first_chr = input()
+second_chr = input()
+result = characters_in_range(first_chr, second_chr)
+print(result)
+
+
+
