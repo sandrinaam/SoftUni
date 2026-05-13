@@ -1,0 +1,56 @@
+number_of_heroes = int(input())
+heroes = {}
+
+for _ in range(number_of_heroes):
+    data = input()
+    hero_name, hp, mp = data.split()
+    heroes[hero_name] = {'hp': int(hp), 'mp': int(mp)}
+
+while True:
+    command = input().split(' - ')
+    if command[0] == 'End':
+        break
+
+    elif command[0] == 'CastSpell':
+        hero_name, mp_needed, spell_name = command[1], command[2], command[3]
+
+        if int(mp_needed) <= heroes[hero_name]['mp']:
+            heroes[hero_name]['mp'] -= int(mp_needed)
+            print(f'{hero_name} has successfully cast {spell_name} and now has {heroes[hero_name]["mp"]} MP!')
+        else:
+            print(f'{hero_name} does not have enough MP to cast {spell_name}!')
+
+    elif command[0] == 'TakeDamage':
+        hero_name, damage, attacker = command[1], command[2], command[3]
+        heroes[hero_name]['hp'] -= int(damage)
+        if heroes[hero_name]['hp'] > 0:
+            print(f'{hero_name} was hit for {damage} HP by {attacker} and now has {heroes[hero_name]["hp"]} HP left!')
+        else:
+            del heroes[hero_name]
+            print(f'{hero_name} has been killed by {attacker}!')
+
+    elif command[0] == 'Recharge':
+        hero_name, amount = command[1], command[2]
+        old_mp = heroes[hero_name]['mp']
+        heroes[hero_name]['mp'] += int(amount)
+        if heroes[hero_name]['mp'] > 200:
+            heroes[hero_name]['mp'] = 200
+        print(f'{hero_name} recharged for {heroes[hero_name]["mp"] - old_mp} MP!')
+
+    elif command[0] == 'Heal':
+        hero_name, amount = command[1], command[2]
+        old_hp = heroes[hero_name]['hp']
+        heroes[hero_name]['hp'] += int(amount)
+        if heroes[hero_name]['hp'] > 100:
+            heroes[hero_name]['hp'] = 100
+        print(f'{hero_name} healed for {heroes[hero_name]["hp"] - old_hp} HP!')
+
+for hero_name,stats in heroes.items():
+    print(f'{hero_name}')
+    print(f'  HP: {stats["hp"]}')
+    print(f'  MP: {stats["mp"]}')
+
+
+
+
+
