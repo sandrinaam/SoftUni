@@ -1,0 +1,13 @@
+import re
+
+all_matches = []
+line = input()
+regex = r'\d+'
+
+while line:
+    matches = re.findall(regex, line)
+    if matches:
+        all_matches += matches
+    line = input()
+
+print(" ".join(all_matches))
