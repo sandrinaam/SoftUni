@@ -1,0 +1,21 @@
+number = int(input())
+first_number = 1
+second_number = 1
+third_number = 2
+def tribonacci_sequence():
+    if number == 1:
+        return '1'
+    if number == 2:
+        return '1 1'
+
+    numbers_list = [first_number, second_number, third_number]
+    range_is = number -3
+
+    for next_number in range(range_is):
+        next_number = numbers_list[-1] + numbers_list[-2] + numbers_list[-3]
+        numbers_list.append(next_number)
+
+    string_numbers = ' '.join(map(str, numbers_list))
+    return string_numbers
+
+print(tribonacci_sequence())
