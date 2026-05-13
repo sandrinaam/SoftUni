@@ -1,0 +1,5 @@
+current_version = input().split('.')
+number_of_version = int(''.join(current_version))
+next_version_number = number_of_version + 1
+next_version_list = [digit for digit in str(next_version_number)]
+print(f'{".".join(next_version_list)}')
