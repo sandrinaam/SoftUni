@@ -1,0 +1,10 @@
+number = input()
+sorted_num = sorted(number, reverse=True)
+print(f'{"".join(sorted_num)}')
+
+
+
+
+
+
+
