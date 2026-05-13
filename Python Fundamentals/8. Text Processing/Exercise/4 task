@@ -1,0 +1,10 @@
+text = input()
+string = ''
+
+for char in text:
+    number = ord(char) + 3
+    new_char = chr(number)
+    string += new_char
+
+print(string)
+
