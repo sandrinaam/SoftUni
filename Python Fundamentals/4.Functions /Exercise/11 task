@@ -1,0 +1,9 @@
+def loading_bar(number):
+    if number == 100:
+        return '100% Complete!\n[%%%%%%%%%%]'
+    number_of_percent = number // 10
+    number_of_dots = 10 - number_of_percent
+    return f"{number}% [{'%' * number_of_percent}{'.' * number_of_dots}]\nStill loading..."
+
+int_number = int(input())
+print(loading_bar(int_number))
