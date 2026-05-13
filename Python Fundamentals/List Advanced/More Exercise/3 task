@@ -1,40 +1,56 @@
+def correct_lab_bounds(row, col):
+    if row < 0 or col < 0 or row >= len(lab_list) or col >= len(lab_list[0]):
+        return True
+
+
+def check_wall(row, col):
+    if lab_list[row][col] in "#v":
+        return True
+
+
+def find_exit(row, col):
+    if row == 0 or row == len(lab_list) - 1 or col == 0 or col == len(lab_list[0]):
+        return True
+
+
+def find_starting_point():
+    for pos_row, row in enumerate(lab_list):
+        for pos_col, col in enumerate(row):
+            if col == "k":
+                return pos_row, pos_col
+
+
+def find_the_lab_path(row, col, lab):
+    if correct_lab_bounds(row, col) or check_wall(row, col):
+        return
+
+    steps.append(1)
+
+    if find_exit(row, col):
+        max_len_path.append(sum(steps))
+
+    lab[row][col] = "v"
+    find_the_lab_path(row, col + 1, lab)  # check right
+    find_the_lab_path(row, col - 1, lab)  # check left
+    find_the_lab_path(row + 1, col, lab)  # check up
+    find_the_lab_path(row - 1, col, lab)  # check down
+    lab[row][col] = " "
+
+    steps.pop()
+
+
 rows = int(input())
-maze = []
+lab_list = []
+steps = []
+max_len_path = []
+for curr_lab in range(rows):
+    lab_list.append(list(input()))
+cols = len(lab_list[0])
+start_row, start_col = find_starting_point()
 
-for _ in range(rows):
-    maze.append(list(input()))
+find_the_lab_path(start_row, start_col, lab_list)
 
-for r in range(rows):
-    for c in range(len(maze[r])):
-        if maze[r][c] == 'k':
-            row = r
-            col = c
-
-moves = 0
-escaped = False
-
-while True:
-
-    if row == 0 or row == rows - 1 or col == 0 or col == len(maze[row]) - 1:
-        escaped = True
-        break
-
-    maze[row][col] = '#'
-
-    if row + 1 < rows and maze[row + 1][col] == ' ':
-        row += 1
-    elif row - 1 >= 0 and maze[row - 1][col] == ' ':
-        row -= 1
-    elif col + 1 < len(maze[row]) and maze[row][col + 1] == ' ':
-        col += 1
-    elif col - 1 >= 0 and maze[row][col - 1] == ' ':
-        col -= 1
-    else:
-        break
-
-    moves += 1
-
-if escaped:
-    print(f"Kate got out in {moves + 1} moves")
+if max_len_path:
+    print(f"Kate got out in {max(max_len_path)} moves")
 else:
     print("Kate cannot get out")
