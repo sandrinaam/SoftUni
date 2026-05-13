@@ -1,0 +1,58 @@
+items = list(map(int, input().split('|')))
+collected_items = 0
+current_index = 0
+
+while True:
+    initial_command = input()
+
+    if initial_command.startswith('Double'):
+        parts_of_initial_command = initial_command.split(' ')
+        if 0 <= int(parts_of_initial_command[1]) < len(items):
+            items[int(parts_of_initial_command[1])] *= 2
+        continue
+
+    command = initial_command.split('$') # moje da ne raboti za adv over
+    if command[0] == 'Adventure over':
+        final_list = ' - '.join(map(str, items))
+        print(final_list)
+        print(f'Robo finished the adventure with {collected_items} items!')
+        break
+
+    elif command[0] == 'Step Backward':
+       if int(command[1]) >= len(items):
+            continue
+       current_index = int(command[1])
+       steps =  int(command[2]) - len(items) * (int(command[2]) // len(items))
+       current_index = (current_index - steps) % len(items)
+       collected_items += items[int(current_index)]
+       items[int(current_index)] = 0
+
+
+    elif command[0] == 'Step Forward':
+        if int(command[1]) >= len(items):
+            continue
+        current_index = int(command[1])
+        steps = int(command[2]) - len(items) * (int(command[2]) // len(items))
+        current_index = (current_index + steps) % len(items)
+        collected_items += items[int(current_index)]
+        items[int(current_index)] = 0
+
+    elif command[0] == 'Switch':
+        items = list(reversed(items))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
