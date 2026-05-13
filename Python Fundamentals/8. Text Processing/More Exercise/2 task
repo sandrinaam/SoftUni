@@ -1,0 +1,10 @@
+first_char = ord(input())
+second_char = ord(input())
+string = input()
+asci_sum = 0
+
+for char in string:
+    if second_char < ord(char) < first_char or second_char > ord(char) > first_char:
+        asci_sum += ord(char)
+print(asci_sum)
+
