@@ -1,0 +1,13 @@
+dictionary = {}
+resource = input()
+
+while resource != 'stop':
+    quantity = input()
+
+    if resource not in dictionary:
+        dictionary[resource] = 0
+    dictionary[resource] += int(quantity)
+    resource = input()
+
+for resource, quantity in dictionary.items():
+    print(f'{resource} -> {quantity}')
