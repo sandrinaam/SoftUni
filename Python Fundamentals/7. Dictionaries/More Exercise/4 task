@@ -1,0 +1,29 @@
+dictionary = {}
+
+while True:
+    line = input()
+    if line == 'Once upon a time':
+        break
+
+    name, color, physics = line.split(' <:> ')
+    physics = int(physics)
+
+    key = (name, color)
+
+    if key not in dictionary:
+        dictionary[key] = physics
+
+    else:
+        if physics > dictionary[key]:
+            dictionary[key] = physics
+
+color_count = {}
+
+for (name,color) in dictionary:
+    if color not in color_count:
+        color_count[color] = 0
+    color_count[color] += 1
+
+sorted_dictionary = sorted(dictionary.items(), key=lambda x: (-x[1], -color_count[x[0][1]]))
+for (name, color), physics in sorted_dictionary:
+    print(f'({color}) {name} <-> {physics}')
