@@ -1,0 +1,18 @@
+student_academy = {}
+pair_of_rows = int(input())
+
+for i in range(pair_of_rows):
+    name = input()
+    grade = float(input())
+
+    if name not in student_academy:
+        student_academy[name] = [grade]
+    else:
+        student_academy[name].append(grade)
+
+for student, grades in student_academy.items():
+    average = sum(grades) / len(grades)
+    if average >= 4.50:
+        print(f'{student} -> {average:.2f}')
+
+
