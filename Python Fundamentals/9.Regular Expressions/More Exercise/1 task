@@ -1,0 +1,33 @@
+import re
+
+participants = list(map(str, input().split(', ')))
+dictionary = {}
+winners = []
+
+while True:
+    info = input()
+    if info == 'end of race':
+        break
+
+    letter = r'([a-z])'
+    match_letter = re.findall(letter, info, re.IGNORECASE)
+    full_name = ''.join(match_letter)
+
+    if full_name in participants:
+        digit = r'\d'
+        match_digit = re.findall(digit, info)
+        distance = sum(map(int, match_digit))
+        if full_name in dictionary:
+            dictionary[full_name] += distance
+        else:
+            dictionary[full_name] = distance
+
+sorted_dictionary = sorted(dictionary.items(), key=lambda x: x[1], reverse=True)
+winners = sorted_dictionary[:3]
+
+print(f'1st place: {winners[0][0]}')
+print(f'2nd place: {winners[1][0]}')
+print(f'3rd place: {winners[2][0]}')
+
+
+
