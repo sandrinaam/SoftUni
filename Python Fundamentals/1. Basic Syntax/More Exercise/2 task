@@ -1,0 +1,6 @@
+string = input()
+indices = []
+for i in range(len(string)):
+    if string[i].isupper():
+        indices.append(i)
+print(indices)
