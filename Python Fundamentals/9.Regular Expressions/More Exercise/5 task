@@ -1,0 +1,14 @@
+import re
+
+html_message = input()
+pattern = r'<title>(.*?)<\/title>.*?<body>(.*?)<\/body>'
+match = re.search(pattern, html_message, re.DOTALL)
+
+if match:
+    title, content = match.groups()
+    content = re.sub(r'<.*?>', '', content)
+    content = content.replace('\\n', '')
+    content = ' '.join(content.split())
+
+    print(f'Title: {title}')
+    print(f'Content: {content}')
