@@ -1,0 +1,34 @@
+string = input()
+
+digits = []
+non_digits = []
+take_list = []
+skip_list = []
+
+for char in string:
+    if char.isdigit():
+        digits.append(int(char))
+    else:
+        non_digits.append(char)
+
+for i in range(len(digits)):
+    if i % 2 == 0:
+        take_list.append(digits[i])
+    else:
+        skip_list.append(digits[i])
+
+final_string = ''
+current_index = 0
+
+for digit in range(len(take_list)):
+    take = take_list[digit]
+    skip = skip_list[digit]
+
+    final_string += ''.join(non_digits[current_index:current_index + take])
+    current_index += take
+    current_index += skip
+
+print(final_string)
+
+
+
