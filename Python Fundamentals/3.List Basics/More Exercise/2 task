@@ -1,0 +1,12 @@
+numbers = input().split()
+my_string = list(input())
+result = ''
+
+for num in numbers:
+    index = sum(int(digit) for digit in num)
+    index %= len(my_string)
+    result += my_string[index]
+    my_string.pop(index)
+
+print(result)
+
