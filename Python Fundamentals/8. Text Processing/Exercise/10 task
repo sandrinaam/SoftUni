@@ -1,0 +1,33 @@
+tickets = input().split(", ")
+
+symbols = ['@', '#', '$', '^']
+
+for ticket in tickets:
+    ticket = ticket.strip()
+
+    if len(ticket) != 20:
+        print("invalid ticket")
+        continue
+
+    left = ticket[:10]
+    right = ticket[10:]
+
+    match_symbol = ''
+    match_length = 0
+
+    for symbol in symbols:
+        for count in range(10, 5, -1):
+            if symbol * count in left and symbol * count in right:
+                match_symbol = symbol
+                match_length = count
+                break
+        if match_length:
+            break
+
+    if match_length >= 6:
+        result = f'ticket "{ticket}" - {match_length}{match_symbol}'
+        if match_length == 10:
+            result += " Jackpot!"
+        print(result)
+    else:
+        print(f'ticket "{ticket}" - no match')
