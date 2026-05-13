@@ -1,0 +1,22 @@
+secret_message = input().split()
+message = []
+for word in secret_message:
+    num = ''
+    i = 0
+    while i < len(word) and word[i].isdigit():
+        num += word[i]
+        i += 1
+
+    first_char = chr(int(num))
+    rest = list(word[i:])
+
+    if len(rest) > 1:
+        rest[0], rest[-1] = rest[-1], rest[0]
+
+    message.append(first_char + ''.join(rest))
+
+print(' '.join(message))
+
+
+
+
