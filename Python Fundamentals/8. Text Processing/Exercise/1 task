@@ -1,0 +1,10 @@
+usernames = input().split(", ")
+for username in usernames:
+    if 3 <= len(username) <= 16:
+        is_valid = True
+        for ch in username:
+            if not (ch.isalnum() or ch == '-' or ch == '_'):
+                is_valid = False
+                break
+        if is_valid:
+            print(username)
