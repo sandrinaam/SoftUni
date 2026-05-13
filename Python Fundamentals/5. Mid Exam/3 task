@@ -1,0 +1,53 @@
+songs = list(input().split())
+number_of_commands = int(input())
+for song in range(number_of_commands):
+    command = input().split(' * ')
+
+    if command[0] == 'Add Song':
+        if command[1] not in songs:
+            songs.append(command[1])
+            print(f'{command[1]} successfully added')
+        else:
+            continue
+    elif command[0] == 'Delete Song':
+        if int(command[1]) > len(songs):
+            continue
+        else:
+            songs_to_delete = int(command[1])
+            deleted_song = songs[:songs_to_delete] # moje da e bez -1
+            songs = songs[songs_to_delete:] # moje da e +1
+            deletes_songs_str = ', '.join(deleted_song)
+            print(f'{deletes_songs_str} deleted')
+
+    elif command[0] == 'Shuffle Songs':
+        song_1, song_2 = int(command[1]), int(command[2])
+        if 0 <= song_1 < len(songs) and 0 <= song_2 < len(songs):
+            songs[int(command[1])], songs[int(command[2])] = songs[int(command[2])], songs[int(command[1])]
+            print(f'{songs[int(command[1])]} is swapped with {songs[int(command[2])]}')
+        else:
+            continue
+
+    elif command[0] == 'Insert':
+        if int(command[2]) < len(songs):
+            if command[1] not in songs:
+                songs.insert(int(command[2]), command[1]) # moje da e obratnoto
+                print(f'{command[1]} successfully inserted')
+            else:
+                print('Song is already in the playlist')
+        else:
+            print(f'Index out of range')
+            continue
+
+    elif command[0] == 'Sort':
+        songs.sort(reverse=True) # check
+
+    elif command[0] == 'Play':
+        songs_to_play = '\n'.join(songs)
+        print('Songs to Play:')
+        print(f'{songs_to_play}')
+
+
+
+
+
+
