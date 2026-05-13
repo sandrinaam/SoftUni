@@ -1,0 +1,16 @@
+def sorted_list (string_num : list) -> list:
+    return sorted(string_num)
+
+str_num = input().split()
+digit_num = []
+for num in str_num:
+    digit_num.append(int(num))
+result = sorted_list(digit_num)
+print(result)
+
+
+
+
+
+
+
