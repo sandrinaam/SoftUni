@@ -1,0 +1,31 @@
+user_points = {}
+submissions = {}
+
+while True:
+    current_result = input().split('-')
+
+    if len(current_result) == 1:
+        break
+
+    elif len(current_result) == 2:
+        user = current_result[0]
+        del user_points[user]
+
+    else:
+        name, course, point = current_result[0], current_result[1], current_result[2]
+        if name not in user_points.keys():
+            user_points[name] = 0
+        if int(point) > user_points[name]:
+            user_points[name] = int(point)
+        if course not in submissions.keys():
+            submissions[course] = 0
+        submissions[course] += 1
+
+print('Results:')
+for name, points in user_points.items():
+    print(f'{name} | {points}')
+
+print('Submissions:')
+for course, number in submissions.items():
+    print(f'{course} - {number}')
+
