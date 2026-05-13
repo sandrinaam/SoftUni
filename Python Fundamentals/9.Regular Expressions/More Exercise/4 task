@@ -1,0 +1,17 @@
+import re
+
+demons = re.split(r'\s*,\s*', input())
+demons.sort()
+
+for demon in demons:
+    health = sum(ord(c) for c in re.findall(r'[^0-9+\-*/.]', demon))
+    damage = sum(float(n) for n in re.findall(r'[+-]?\d+(?:\.\d+)?', demon))
+
+    for char in re.findall(r'[*\/]', demon):
+        if char == '*':
+            damage *= 2
+        elif char == '/':
+            damage /= 2
+
+    print(f'{demon} - {health} health, {damage:.2f} damage')
+
