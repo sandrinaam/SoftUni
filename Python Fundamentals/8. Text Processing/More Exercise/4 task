@@ -1,0 +1,62 @@
+morse_code = input().split()
+message = ''
+
+for char in range(len(morse_code)):
+    if morse_code[char] == '|':
+        message += ' '
+    elif morse_code[char] == '.-':
+        message += 'A'
+    elif morse_code[char] == '-...':
+        message += 'B'
+    elif morse_code[char] == '-.-.':
+        message += 'C'
+    elif morse_code[char] == '-..':
+        message += 'D'
+    elif morse_code[char] == '.':
+        message += 'E'
+    elif morse_code[char] == '..-.':
+        message += 'F'
+    elif morse_code[char] == '--.':
+        message += 'G'
+    elif morse_code[char] == '....':
+        message += 'H'
+    elif morse_code[char] == '..':
+        message += 'I'
+    elif morse_code[char] == '.---':
+        message += 'J'
+    elif morse_code[char] == '-.-':
+        message += 'K'
+    elif morse_code[char] == '.-..':
+        message += 'L'
+    elif morse_code[char] == '--':
+        message += 'M'
+    elif morse_code[char] == '-.':
+        message += 'N'
+    elif morse_code[char] == '---':
+        message += 'O'
+    elif morse_code[char] == '.--.':
+        message += 'P'
+    elif morse_code[char] == '--.-':
+        message += 'Q'
+    elif morse_code[char] == '.-.':
+        message += 'R'
+    elif morse_code[char] == '...':
+        message += 'S'
+    elif morse_code[char] == '-':
+        message += 'T'
+    elif morse_code[char] == '..-':
+        message += 'U'
+    elif morse_code[char] == '...-':
+        message += 'V'
+    elif morse_code[char] == '.--':
+        message += 'W'
+    elif morse_code[char] == '-..-':
+        message += 'X'
+    elif morse_code[char] == '-.--':
+        message += 'Y'
+    elif morse_code[char] == '--..':
+        message += 'Z'
+
+print(message)
+
+
