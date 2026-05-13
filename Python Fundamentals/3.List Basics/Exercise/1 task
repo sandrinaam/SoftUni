@@ -1,0 +1,7 @@
+string = input().split()
+lst = []
+for number in string:
+    lst.append(-int(number))
+print(lst)
+
+
