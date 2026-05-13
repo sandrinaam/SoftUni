@@ -1,0 +1,20 @@
+locations_number = int(input())
+
+for i in range (locations_number):
+    gold_expected_per_day = float(input())
+    days_per_location = int(input())
+    gold_sum = 0
+    for e in range (days_per_location):
+        gold_per_day = float(input())
+        gold_sum += gold_per_day
+    average_gold = gold_sum / days_per_location
+    if average_gold >= gold_expected_per_day:
+     print(f'Good job! Average gold per day: {average_gold:.2f}.')
+    else:
+     print(f'You need {abs(gold_expected_per_day-average_gold):.2f} gold.')
+
+
+
+
+
+
