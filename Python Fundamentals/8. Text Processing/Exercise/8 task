@@ -1,0 +1,25 @@
+string = input().split()
+final_num = 0
+
+for char in string:
+    first_letter = char[0]
+    number = char[1:-1]
+    second_letter = char[-1]
+    if first_letter.isupper():
+        divisor = ord(first_letter) - 64
+        number_ = float(number) / divisor
+    else:
+        multiplier = ord(first_letter) - 96
+        number_ = float(number) * multiplier
+
+    if second_letter.isupper():
+        subtract = ord(second_letter) - 64
+        number_ = float(number_) - subtract
+    else:
+        add = ord(second_letter) - 96
+        number_ = float(number_) + add
+
+    final_num += number_
+
+print(f'{final_num:.2f}')
+
