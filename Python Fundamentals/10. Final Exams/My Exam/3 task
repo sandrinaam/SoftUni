@@ -1,0 +1,46 @@
+animals = {}
+areas = {}
+
+while True:
+    line = input()
+    if line == 'EndDay':
+        break
+
+    command, data = line.split(':')
+
+    if command == 'Add':
+        animal_name, needed_food_quantity, area = data.split('-')
+        needed_food_quantity = int(needed_food_quantity)
+        if animal_name not in animals:
+            animals[animal_name] = {'needed_food_quantity': needed_food_quantity, 'area': area}
+            if area not in areas:
+                areas[area] = 0
+            areas[area] += 1
+        else:
+            animals[animal_name]['needed_food_quantity'] += needed_food_quantity
+
+    elif command == 'Feed':
+        animal_name, food = data.split('-')
+        food = int(food)
+        if animal_name in animals:
+            animals[animal_name]['needed_food_quantity'] -= food
+            if animals[animal_name]['needed_food_quantity'] <= 0:
+                area_of_animal = animals[animal_name]['area']
+                areas[area_of_animal] -= 1
+
+                if areas[area_of_animal] == 0:
+                    del areas[area_of_animal]
+
+                animals.pop(animal_name)
+                print(f'{animal_name} was successfully fed')
+        else:
+            continue
+
+print('Animals:')
+for animal_name, stock in animals.items():
+    print(f'{animal_name} -> {stock["needed_food_quantity"]}g')
+
+print('Areas with hungry animals:')
+for area_name, stock in areas.items():
+    print(f'{area_name}: {stock}')
+
