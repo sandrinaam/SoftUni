@@ -1,0 +1,22 @@
+times = input().split()
+times_list = list(map(int, times))
+
+finish_line_index = len(times_list) // 2
+
+first_car_time = 0
+second_car_time = 0
+
+for index in range(finish_line_index):
+    if times_list[index] == 0:
+        first_car_time *= 0.8
+    first_car_time += times_list[index]
+
+for index in range(len(times_list)-1,finish_line_index,-1):
+    if times_list[index] == 0:
+        second_car_time *= 0.8
+    second_car_time += times_list[index]
+
+if first_car_time < second_car_time:
+    print(f'The winner is left with total time: {first_car_time:.1f}')
+elif first_car_time > second_car_time:
+    print(f'The winner is right with total time: {second_car_time:.1f}')
