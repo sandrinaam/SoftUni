@@ -1,0 +1,10 @@
+def is_even(num: int) -> bool:
+    return num % 2 == 0
+
+str_num = input().split()
+digit_num = []
+for num in str_num:
+    digit_num.append(int(num))
+result = list(filter(is_even, digit_num))
+print(result)
+
