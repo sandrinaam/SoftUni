@@ -1,0 +1,16 @@
+from math import floor
+
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+
+def center_point():
+    distance1 = abs(x1) + abs(y1)
+    distance2 = abs(x2) + abs(y2)
+    if distance1 <= distance2:
+        return f'({floor(x1)}, {floor(y1)})'
+    else:
+        return f'({floor(x2)}, {floor(y2)})'
+
+print(center_point())
