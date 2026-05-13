@@ -1,0 +1,37 @@
+from math import sqrt, floor
+
+points = []
+for _ in range(4):
+    x = float(input())
+    y = float(input())
+    points.append((x, y))
+
+(x1, y1), (x2, y2), (x3, y3), (x4, y4) = points
+
+
+def longer_line():
+    a = abs(x1-x2)
+    b = abs(y1-y2)
+    c = abs(x3-x4)
+    d = abs(y3-y4)
+    length_1 = sqrt(a * a + b * b)
+    length_2 = sqrt(c * c + d * d)
+    if length_1 <= length_2:
+        distance_1 = abs(x3) + abs(y3)
+        distance_2 = abs(x4) + abs(y4)
+        if distance_1 <= distance_2:
+            return f'({floor(x3)}, {floor(y3)})({floor(x4)}, {floor(y4)})'
+        else:
+            return f'({floor(x4)}, {floor(y4)})({floor(x3)}, {floor(y3)})'
+    else:
+        distance_1 = abs(x1) + abs(y1)
+        distance_2 = abs(x2) + abs(y2)
+        if distance_1 <= distance_2:
+            return f'({floor(x1)}, {floor(y1)})({floor(x2)}, {floor(y2)})'
+        else:
+            return f'({floor(x2)}, {floor(y2)})({floor(x1)}, {floor(y1)})'
+
+print(longer_line())
+
+
+
