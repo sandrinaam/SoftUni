@@ -1,0 +1,49 @@
+dragons = {}
+number = int(input())
+
+for _ in range(number):
+    line = input()
+    typ, name, damage, health, armor = line.split()
+
+    if health == 'null':
+        health = 250
+    if damage == 'null':
+        damage = 45
+    if armor == 'null':
+        armor = 10
+
+    damage = int(damage)
+    health = int(health)
+    armor = int(armor)
+
+    if typ not in dragons:
+        dragons[typ] = {}
+
+    dragons[typ][name] = [damage, health, armor]
+
+for typ in dragons:
+    total_damage = 0
+    total_health = 0
+    total_armor = 0
+    count = len(dragons[typ])
+
+    for status in dragons[typ].values():
+        total_damage += status[0]
+        total_health += status[1]
+        total_armor += status[2]
+
+    avg_damage = total_damage / count
+    avg_health = total_health / count
+    avg_armor = total_armor / count
+
+    print(f'{typ}::({avg_damage:.2f}/{avg_health:.2f}/{avg_armor:.2f})')
+
+    for name in sorted(dragons[typ]):
+        d,h,a = dragons[typ][name]
+        print(f'-{name} -> damage: {d}, health: {h}, armor: {a}')
+
+
+
+
+
+
