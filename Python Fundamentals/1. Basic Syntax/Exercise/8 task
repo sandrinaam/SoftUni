@@ -1,0 +1,18 @@
+count_coffees = 0
+special_words = ['coding', 'dog', 'cat', 'movie']
+while True:
+    command = input()
+    if command.lower() == 'end':
+        break
+    elif command.lower() in special_words:
+        if command.islower():
+            count_coffees += 1
+        elif command.isupper():
+            count_coffees += 2
+    else:
+        continue
+if count_coffees > 5:
+    print('You need extra sleep')
+else:
+    print(count_coffees)
+
