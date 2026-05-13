@@ -1,0 +1,24 @@
+number_of_lines = int(input())
+last_open = False
+
+is_balanced = True
+
+for _ in range(number_of_lines):
+    line = input()
+
+    if line == '(':
+        if last_open:
+            is_balanced = False
+            break
+        last_open = True
+
+    elif line == ')':
+        if not last_open:
+            is_balanced = False
+            break
+        last_open = False
+
+if last_open:
+    is_balanced = False
+print('BALANCED' if is_balanced else 'UNBALANCED')
+
