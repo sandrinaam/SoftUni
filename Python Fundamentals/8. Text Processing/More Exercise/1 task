@@ -1,0 +1,31 @@
+lines = int(input())
+
+
+for line in range(lines):
+    string = input()
+    name = ''
+    age = ''
+
+    for i in range(len(string)):
+        if string[i] == '@':
+            start_index = i + 1
+
+            for j in range(len(string)):
+                if string[j] == '|':
+                    end_index = j
+                    name = string[start_index:end_index]
+
+    for m in range(len(string)):
+        if string[m] == '#':
+            start_index_1 = m + 1
+
+            for n in range(len(string)):
+                if string[n] == '*':
+                    end_index_1 = n
+                    age = string[start_index_1:end_index_1]
+
+    print(f'{name} is {age} years old.')
+
+
+
+
