@@ -1,0 +1,13 @@
+def check_employee_happiness(happiness_list, factor):
+    list_improved_happiness = [happiness * factor for happiness in happiness_list]
+    average_happiness = sum(list_improved_happiness) / len(list_improved_happiness)
+    happy_employees = sum(num >= average_happiness for num in list_improved_happiness)
+    total_count = len(list_improved_happiness)
+
+    message = 'happy' if happy_employees >= total_count /2 else 'not happy'
+    return f'Score: {happy_employees}/{total_count}. Employees are {message}!'
+
+happiness_lst = list(map(int, input().split()))
+happiness_factor = int(input())
+result = check_employee_happiness(happiness_lst, happiness_factor)
+print(result)
