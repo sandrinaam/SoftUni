@@ -1,0 +1,18 @@
+def multiplication_sign():
+    count_negative = 0
+
+    for number in range(3):
+        number = int(input())
+        if number == 0:
+            return 'zero'
+        elif number < 0:
+            count_negative += 1
+
+    if count_negative == 2 or count_negative == 0:
+        return 'positive'
+    else:
+        return 'negative'
+
+print(multiplication_sign())
+
+
