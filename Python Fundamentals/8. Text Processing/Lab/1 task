@@ -1,0 +1,8 @@
+while True:
+    command = input()
+    if command == 'end':
+        break
+    text_reversed = ''
+    for char in reversed(command):
+        text_reversed += char
+    print(command + " = " + text_reversed)
