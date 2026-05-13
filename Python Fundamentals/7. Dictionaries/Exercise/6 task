@@ -1,0 +1,22 @@
+orders = {}
+
+while True:
+    entry = input()
+
+    if entry == 'buy':
+        break
+
+    name,price,quantity = entry.split()
+    price = float(price)
+    quantity = int(quantity)
+
+    if name not in orders:
+        orders[name] = [price, quantity]
+    else:
+        orders[name][1] += quantity
+        orders[name][0] = price
+
+for name, data in orders.items():
+    price = data[0]
+    quantity = data[1]
+    print(f'{name} -> {price * quantity:.2f}')
