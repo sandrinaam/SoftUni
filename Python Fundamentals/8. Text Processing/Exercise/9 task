@@ -1,0 +1,26 @@
+strings = input()
+string = ''
+number = ''
+lst_strings = []
+unique_symbols = []
+
+for ch in strings:
+    if not ch.isdigit():
+        if number:
+            lst_strings.append(string.upper() * int(number))
+            string = ''
+            number = ''
+
+        string += ch
+
+        if ch.lower() not in unique_symbols:
+            unique_symbols.append(ch.lower())
+
+    else:
+        number += ch
+
+if number:
+    lst_strings.append(string.upper() * int(number))
+
+print(f'Unique symbols used: {len(unique_symbols)}')
+print(f'{"".join(lst_strings)}')
