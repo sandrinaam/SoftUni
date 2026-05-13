@@ -1,0 +1,45 @@
+breed = input()
+gender = input()
+
+if breed == 'British Shorthair':
+    if gender == 'm':
+        age = 13
+    elif gender == 'f':
+        age = 14
+elif breed == 'Siamese':
+    if gender == 'm':
+        age = 15
+    elif gender == 'f':
+        age = 16
+elif breed == 'Persian':
+    if gender == 'm':
+        age = 14
+    elif gender == 'f':
+        age = 15
+elif breed == 'Ragdoll':
+    if gender == 'm':
+        age = 16
+    elif gender == 'f':
+        age = 17
+elif breed == 'American Shorthair':
+    if gender == 'm':
+        age = 12
+    elif gender == 'f':
+        age = 13
+elif breed == "Siberian":
+    if gender == 'm':
+        age = 11
+    elif gender == 'f':
+        age = 12
+else:
+    age = 0
+
+if age > 0:
+ cat_months = (age * 12) / 6
+ print(f"{int(cat_months)} cat months")
+
+elif age == 0:
+    print(f"{breed} is invalid cat!")
+
+
+
