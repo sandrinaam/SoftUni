@@ -1,0 +1,40 @@
+initial_energy = float(input())
+pieces_found = 0
+pieces_needed =  3
+mountains_passed = 0
+
+while initial_energy > 0:
+    command = input()
+    if command == 'Journey ends here!':
+        print(f'The character could not find all the pieces and needs {pieces_needed- pieces_found}'
+              f' more to complete the legendary artifact.')
+        break
+
+    if command == 'mountain':
+        initial_energy -= 10
+        if initial_energy >= 0:
+            mountains_passed += 1
+            if mountains_passed % 3 == 0:
+                pieces_found += 1
+
+    elif command == 'desert':
+        initial_energy -= 15
+
+    elif command == 'forest':
+        initial_energy += 7
+
+    if pieces_found == pieces_needed:
+        print(f'The character reached the legendary artifact with {initial_energy:.2f} energy left.')
+        break
+
+else:
+    print(f'The character is too exhausted to carry on with the journey.')
+
+
+
+
+
+
+
+
+
