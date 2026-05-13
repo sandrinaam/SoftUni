@@ -1,0 +1,55 @@
+players = {}
+
+while True:
+    line = input()
+    if line == 'Season end':
+        break
+
+    if ' -> ' in line:
+        player, position, skill = line.split(' -> ')
+        skill = int(skill)
+
+        if player not in players:
+            players[player] = {}
+
+        if position not in players[player]:
+           players[player][position] = skill
+
+        else:
+           if skill > players[player][position]:
+               players[player][position] = skill
+
+    elif 'vs' in line:
+        player1, player2 = line.split(' vs ')
+
+        if player1 in players and player2 in players:
+            common_position = []
+
+            for position in players[player1]:
+                if position in players[player2]:
+                    common_position.append(position)
+
+            if common_position:
+                total_1 = sum(players[player1].values())
+                total_2 = sum(players[player2].values())
+
+                if total_1 > total_2:
+                    del players[player2]
+                elif total_2 > total_1:
+                    del players[player1]
+
+sorted_players = sorted(players.items(), key = lambda x:(-sum(x[1].values()), x[0]))
+for player, position in sorted_players:
+    total_skill = sum(position.values())
+    print(f'{player}: {total_skill} skill')
+
+    sorted_positions = sorted(position.items(), key = lambda x:(-x[1], x[0]))
+    for position, skill in sorted_positions:
+        print(f'- {position} <::> {skill}')
+
+
+
+
+
+
+
