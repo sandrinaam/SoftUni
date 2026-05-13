@@ -1,0 +1,10 @@
+import re
+line = input()
+pattern = r'(w{3}\.([a-z0-9\-]+)(\.([a-z]+))+)'
+
+while line:
+    matches = re.search(pattern, line, re.IGNORECASE)
+    if matches:
+        link = matches.group(1)
+        print(link)
+    line = input()
