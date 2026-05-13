@@ -1,0 +1,9 @@
+string_of_numbers = (input().split(', '))
+string_of_numbers_list = list(map(int, string_of_numbers))
+for i in range(len(string_of_numbers_list)):
+    if (string_of_numbers_list[i]) == 0:
+        string_of_numbers_list.remove(string_of_numbers_list[i])
+        string_of_numbers_list.append(0)
+    continue
+#print(f'{", ".join(string_of_numbers_list)}')
+print(string_of_numbers_list)
