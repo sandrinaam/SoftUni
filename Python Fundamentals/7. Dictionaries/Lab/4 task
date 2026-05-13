@@ -1,0 +1,19 @@
+students = {}
+
+while True:
+    command = input()
+
+    if ':' not in command:
+        course = command.replace('_', ' ')
+        break
+
+    name, i_d, course_name = command.split(':')
+
+    if course_name not in students:
+        students[course_name] = {}
+
+    students[course_name][name] = i_d
+
+for name, i_d in students[course].items():
+    print(f'{name} - {i_d}')
+
