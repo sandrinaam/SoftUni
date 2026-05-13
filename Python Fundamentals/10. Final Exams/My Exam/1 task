@@ -1,0 +1,58 @@
+coded_message = input()
+
+while True:
+    commands = input()
+
+    if commands == 'Finalize':
+        break
+
+    parts = commands.split()
+    command = parts[0]
+
+
+    if command == 'Encrypt':
+        coded_message = coded_message[::-1]
+        print(coded_message)
+
+    elif command == 'Decrypt':
+        coded_message = coded_message.swapcase()
+        print(coded_message)
+        #decrypted = ''
+        #for char in coded_message:
+         #   if char.isupper():
+        #        decrypted += char.lower()
+         #   elif char.islower():
+         #       decrypted += char.upper()
+        #    else:
+            #    decrypted += char
+        #coded_message = decrypted
+        #print(coded_message)
+
+    elif command == 'Substitute':
+        old_char, new_char = parts[1], parts[2]
+        if old_char in coded_message:
+            coded_message = coded_message.replace(old_char, new_char)
+            print(coded_message)
+        else:
+            print('Character not found.')
+
+    elif command == 'Scramble':
+        index, char = int(parts[1]), parts[2]
+        if 0 <= index < len(coded_message) :
+            first_part = coded_message[:index]
+            second_part = coded_message[index + 1:]
+            coded_message = first_part + char + second_part
+            print(coded_message)
+        else:
+            print('Index out of bounds.')
+
+    elif command == 'Remove':
+        substring = parts[1]
+        coded_message = coded_message.replace(substring, '')
+        print(coded_message)
+
+    else:
+        print('Invalid command detected!')
+
+
+
