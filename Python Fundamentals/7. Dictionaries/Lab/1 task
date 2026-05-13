@@ -1,0 +1,5 @@
+food = input().split()
+bakery = {}
+for item in range(0, len(food), 2):
+    bakery[food[item]] = int(food[item+1])
+print(bakery)
