@@ -1,0 +1,38 @@
+import re
+number = int(input())
+attacked_planets = []
+destroyed_planets = []
+
+for _ in range(number):
+    message = input()
+
+    key = sum(1 for c in message.lower() if c in 'star')
+
+    decrypted_message = ''
+    for i in range(len(message)):
+        decrypted_message += chr(ord(message[i]) - key)
+
+    pattern = r'@([A-Za-z]+)[^@\-!:>]*:(\d+)[^@\-!:>]*!(A|D)![^@\-!:>]*->(\d+)'
+    matches = re.search(pattern, decrypted_message)
+
+    if matches:
+        planet, population, attack_type, soldier_count = matches.groups()
+
+        if attack_type == 'A':
+            attacked_planets.append(planet)
+        else:
+            destroyed_planets.append(planet)
+
+sorted_attacked_planets = sorted(attacked_planets)
+sorted_destroyed_planets = sorted(destroyed_planets)
+
+print(f'Attacked planets: {len(sorted_attacked_planets)}')
+for planets in sorted_attacked_planets:
+    print(f'-> {planets}')
+
+print(f'Destroyed planets: {len(sorted_destroyed_planets)}')
+for planets in sorted_destroyed_planets:
+    print(f'-> {planets}')
+
+
+
