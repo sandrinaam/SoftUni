@@ -1,0 +1,16 @@
+price_per_page = float(input())
+price_per_cover = float(input())
+discount = int(input())
+price_designer = float(input())
+percentage_total_sum_team = int(input())
+
+page = 899
+cover = 2
+
+price_print = page * price_per_page + price_per_cover * cover
+price_with_discount = price_print * (100 - discount) / 100
+price_with_designer = price_with_discount + price_designer
+money = price_with_designer * (100 - percentage_total_sum_team) / 100
+
+print(f'Avtonom should pay {money:.2f} BGN.')
+
