@@ -1,0 +1,27 @@
+number = int(input())
+integer_list = []
+for _ in range(number):
+    integer = int(input())
+    integer_list.append(integer)
+
+command = input()
+filtered_list = []
+if command == 'even':
+    for integer in integer_list:
+        if integer % 2 == 0:
+            filtered_list.append(integer)
+elif command == 'odd':
+    for integer in integer_list:
+        if integer % 2 != 0:
+            filtered_list.append(integer)
+elif command == 'negative':
+    for integer in integer_list:
+        if integer < 0:
+            filtered_list.append(integer)
+elif command == 'positive':
+    for integer in integer_list:
+        if integer >= 0:
+            filtered_list.append(integer)
+
+print(filtered_list)
+
