@@ -1,0 +1,40 @@
+rows = int(input())
+maze = []
+
+for _ in range(rows):
+    maze.append(list(input()))
+
+for r in range(rows):
+    for c in range(len(maze[r])):
+        if maze[r][c] == 'k':
+            row = r
+            col = c
+
+moves = 0
+escaped = False
+
+while True:
+
+    if row == 0 or row == rows - 1 or col == 0 or col == len(maze[row]) - 1:
+        escaped = True
+        break
+
+    maze[row][col] = '#'
+
+    if row + 1 < rows and maze[row + 1][col] == ' ':
+        row += 1
+    elif row - 1 >= 0 and maze[row - 1][col] == ' ':
+        row -= 1
+    elif col + 1 < len(maze[row]) and maze[row][col + 1] == ' ':
+        col += 1
+    elif col - 1 >= 0 and maze[row][col - 1] == ' ':
+        col -= 1
+    else:
+        break
+
+    moves += 1
+
+if escaped:
+    print(f"Kate got out in {moves + 1} moves")
+else:
+    print("Kate cannot get out")
