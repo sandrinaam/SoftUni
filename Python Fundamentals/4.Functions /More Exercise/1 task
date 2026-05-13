@@ -1,0 +1,14 @@
+type = input()
+data = input()
+def read_input():
+    result = ''
+    if type == 'int':
+        result = int(data) * 2
+    elif type == 'real':
+        result = f'{float(data) * 1.5:.2f}'
+    elif type == 'string':
+        result = '$' + data + '$'
+    return result
+print(read_input())
+
+
