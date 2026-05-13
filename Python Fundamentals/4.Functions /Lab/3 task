@@ -1,0 +1,16 @@
+def calculator(operation, a, b):
+    result = None
+    if operation == 'multiply':
+        result = a * b
+    elif operation == 'subtract':
+        result = a - b
+    elif operation == 'divide':
+        result = a // b
+    elif operation == 'add':
+        result = a + b
+    return result
+operation = input()
+first_num = int(input())
+second_num = int(input())
+result = calculator(operation, first_num, second_num)
+print(result)
