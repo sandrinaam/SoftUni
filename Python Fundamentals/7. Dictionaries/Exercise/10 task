@@ -1,0 +1,24 @@
+company = {}
+
+while True:
+    command = input().split(' -> ')
+
+    if command[0] == 'End':
+        break
+
+    company_current = command[0]
+    i_d = command[1]
+
+    if company_current not in company.keys():
+        company[company_current] = [i_d]
+    else:
+        if i_d not in company[company_current]:
+            company[company_current].append(i_d)
+
+for company_name, ids in company.items():
+    print(company_name)
+    for i_d in ids:
+        print(f'-- {i_d}')
+
+
+
