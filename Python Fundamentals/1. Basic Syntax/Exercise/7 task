@@ -1,0 +1,15 @@
+while True:
+    command = input()
+    if command == 'End':
+        break
+    if command != 'SoftUni':
+        doubled = ''
+        for char in command:
+            doubled += char*2
+        print(doubled)
+    else:
+        continue
+
+
+
+
