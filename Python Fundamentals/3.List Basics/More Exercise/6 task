@@ -1,0 +1,146 @@
+initial_list = list(map(int, input().split()))
+
+while True:
+    command = input().split()
+
+    if command[0] == 'end':
+        print(initial_list)
+        break
+
+    elif command[0] == 'exchange':
+        if int(command[1]) < 0 or int(command[1]) >= len(initial_list):
+            print('Invalid index')
+        else:
+            index = int(command[1])
+            first_part = initial_list[:index + 1]
+            second_part = initial_list[index + 1:]
+            initial_list = second_part + first_part
+
+
+    elif command[0] == 'max' and command[1] == 'even':
+        max_even = None
+        max_even_index = None
+        for i in range(len(initial_list)):
+            if initial_list[i] % 2 == 0:
+                if max_even is None or initial_list[i] >= max_even:
+                    max_even = initial_list[i]
+                    max_even_index = i
+        if max_even_index is None:
+            print('No matches')
+        else:
+            print(max_even_index)
+
+    elif command[0] == 'min' and command[1] == 'even':
+        min_even = None
+        min_even_index = None
+        for i in range(len(initial_list)):
+            if initial_list[i] % 2 == 0:
+                if min_even is None or initial_list[i] <= min_even:
+                    min_even = initial_list[i]
+                    min_even_index = i
+        if min_even_index is None:
+            print('No matches')
+        else:
+            print(min_even_index)
+
+    elif command[0] == 'max' and command[1] == 'odd':
+        max_odd = None
+        max_odd_index = None
+        for i in range(len(initial_list)):
+            if initial_list[i] % 2 == 1:
+                if max_odd is None or initial_list[i] >= max_odd:
+                    max_odd = initial_list[i]
+                    max_odd_index = i
+        if max_odd_index is None:
+            print('No matches')
+        else:
+            print(max_odd_index)
+
+    elif command[0] == 'min' and command[1] == 'odd':
+        min_odd = None
+        min_odd_index = None
+        for i in range(len(initial_list)):
+            if initial_list[i] % 2 == 1:
+                if min_odd is None or initial_list[i] <= min_odd:
+                    min_odd = initial_list[i]
+                    min_odd_index = i
+        if min_odd_index is None:
+            print('No matches')
+        else:
+            print(min_odd_index)
+
+    elif command[0] == 'first':
+        first_even_list = []
+        count_first_even = 0
+        first_odd_list = []
+        count_first_odd = 0
+
+        count = int(command[1])
+        if count > len(initial_list):
+            print('Invalid count')
+            continue
+
+        for i in range(len(initial_list)):
+            if command[2] == 'even':
+                if count_first_even == count:
+                    break
+                if initial_list[i] % 2 == 0:
+                    first_even_list.append(initial_list[i])
+                    count_first_even +=1
+
+            elif command[2] == 'odd':
+                if count_first_odd == count:
+                    break
+                if initial_list[i] % 2 == 1:
+                    first_odd_list.append(initial_list[i])
+                    count_first_odd +=1
+
+        if command[2] == 'even':
+            print(first_even_list)
+        else:
+            print(first_odd_list)
+
+    elif command[0] == 'last':
+        last_even_list = []
+        count_last_even = 0
+        last_odd_list = []
+        count_last_odd = 0
+
+        count = int(command[1])
+        if count > len(initial_list):
+            print('Invalid count')
+            continue
+        for i in range(len(initial_list) - 1, -1, -1):
+            if command[2] == 'even':
+                if count_last_even == count:
+                    break
+                if initial_list[i] % 2 == 0:
+                    last_even_list.append(initial_list[i])
+                    count_last_even +=1
+
+            elif command[2] == 'odd':
+                if count_last_odd == count:
+                    break
+                if initial_list[i] % 2 == 1:
+                    last_odd_list.append(initial_list[i])
+                    count_last_odd +=1
+
+        if command[2] == 'even':
+            print(last_even_list)
+        else:
+            last_odd_list.reverse()
+            print(last_odd_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
