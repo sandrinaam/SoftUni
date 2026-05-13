@@ -1,0 +1,12 @@
+num_count = int(input())
+for i in range(num_count):
+    num = int(input())
+    if num <= 88:
+        if num == 88:
+            print('Hello')
+        elif num == 86:
+            print('How are you?')
+        else:
+            print('GREAT!')
+    else:
+        print('Bye.')
