@@ -1,0 +1,5 @@
+first_integer = int(input())
+second_integer = int(input())
+print(f'Before:\na = {first_integer}\nb = {second_integer}')
+first_integer , second_integer = second_integer, first_integer
+print(f'After:\na = {first_integer}\nb = {second_integer}')
