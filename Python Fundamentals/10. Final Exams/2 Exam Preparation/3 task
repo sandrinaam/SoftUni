@@ -1,0 +1,46 @@
+number = int(input())
+plants = {}
+
+for _ in range(number):
+    line = input()
+    plant, rarity = line.split('<->')
+    plants[plant] = {'rarity': rarity, 'ratings': []}
+
+while True:
+    command = input()
+
+    if command == 'Exhibition':
+         break
+
+    command, data = command.split(': ')
+
+    if command == 'Rate':
+        plant, rating = data.split(' - ')
+        if plant in plants:
+            plants[plant]['ratings'].append(int(rating))
+        else:
+            print('error')
+
+    elif command == 'Update':
+        plant, new_rarity = data.split(' - ')
+        if plant in plants:
+            plants[plant]['rarity'] = new_rarity
+        else:
+            print('error')
+
+    elif command == 'Reset':
+        plant = data
+        if plant in plants:
+            plants[plant]['ratings'] = []
+        else:
+            print('error')
+
+print('Plants for the exhibition:')
+for plant, info in plants.items():
+    avg_rating = sum(info['ratings']) / len(info['ratings']) if info['ratings'] else 0
+    print(f'- {plant}; Rarity: {info["rarity"]}; Rating: {avg_rating:.2f}')
+
+
+
+
+
