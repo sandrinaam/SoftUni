@@ -1,0 +1,30 @@
+n = int(input())
+board = [input().split() for _ in range(n)]
+
+visited = [[False] * len(board[0]) for _ in range(n)]
+
+def dfs(r, c):
+    if r < 0 or r >= n or c < 0 or c >= len(board[0]):
+        return 0
+    if visited[r][c] or board[r][c] != '.':
+        return 0
+
+    visited[r][c] = True
+    count = 1
+
+    count += dfs(r + 1, c)
+    count += dfs(r - 1, c)
+    count += dfs(r, c + 1)
+    count += dfs(r, c - 1)
+
+    return count
+
+
+max_dots = 0
+
+for r in range(n):
+    for c in range(len(board[0])):
+        if board[r][c] == '.' and not visited[r][c]:
+            max_dots = max(max_dots, dfs(r, c))
+
+print(max_dots)
