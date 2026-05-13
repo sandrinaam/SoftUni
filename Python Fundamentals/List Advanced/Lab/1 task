@@ -1,0 +1,4 @@
+text = input()
+list_vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+list_no_vowels = [char for char in text if char not in list_vowels]
+print(''.join(list_no_vowels))
