@@ -1,0 +1,8 @@
+string = input()
+string_1 = string.lower()
+count = 0
+count += string_1.count('sand')
+count += string_1.count('water')
+count += string_1.count('fish')
+count += string_1.count('sun')
+print(count)
