@@ -1,0 +1,46 @@
+key = list(map(int, input().split()))
+
+while True:
+    line = input()
+
+    if line == 'find':
+        break
+
+    string = ''
+    type = ''
+    coordinates = ''
+
+    for char in range(len(line)):
+        string += chr(ord(line[char]) - key[char % len(key)])
+
+
+    for char in range(len(string)):
+        if string[char] == '&':
+            start_index = char + 1
+            for char2 in range(start_index, len(string)):
+                if string[char2] == '&':
+                    end_index = char2
+                    type = string[start_index:end_index]
+                    break
+            break
+
+
+    for char in range(len(string)):
+        if string[char] == '<':
+            start_index = char + 1
+            for char2 in range(start_index, len(string)):
+                if string[char2] == '>':
+                    end_index = char2
+                    coordinates = string[start_index:end_index]
+                    break
+            break
+
+    print(f'Found {type} at {coordinates}')
+
+
+
+
+
+
+
+
