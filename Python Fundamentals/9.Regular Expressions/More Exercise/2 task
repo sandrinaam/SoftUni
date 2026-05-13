@@ -1,0 +1,19 @@
+import re
+
+total_sum = 0
+while True:
+    order = input()
+    if order == 'end of shift':
+        break
+
+
+    pattern = r'%([A-Z][a-z]+)%[^|$%.]*<([^>]+)>[^|$%.]*\|(\d+)\|[^|$%.]*?(\d+(?:\.\d+)?)\$'
+    matches = re.search(pattern, order)
+
+    if matches:
+        name, product, count, price = matches.groups()
+        total = int(count) * float(price)
+        total_sum += total
+        print(f'{name}: {product} - {total:.2f}')
+
+print(f'Total income: {total_sum:.2f}')
