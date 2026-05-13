@@ -1,0 +1,58 @@
+strings = input().split()
+
+while True:
+    command = input().split()
+
+    if command[0] == '3:1':
+        break
+
+    elif command[0] == 'merge':
+        start_index = int(command[1])
+        end_index = int(command[2])
+
+        if start_index < 0:
+            start_index = 0
+        if end_index >= len(strings):
+            end_index = len(strings) - 1
+
+        merged = ''.join(strings[start_index:end_index +1])
+
+        for i in range(end_index , start_index-1, -1):
+            strings.pop(i)
+
+        strings.insert(start_index, merged)
+
+
+    elif command[0] == 'divide':
+        start_index = int(command[1])
+        partitions = int(command[2])
+
+        word = strings[start_index]
+        part_length = len(word) // partitions
+
+        parts = []
+        start = 0
+
+        for i in range(partitions):
+            if i == partitions -1:
+                parts.append(word[start:])
+            else:
+                parts.append(word[start:start+part_length])
+                start += part_length
+        strings.pop(start_index)
+
+        for part in reversed(parts):
+            strings.insert(start_index, part)
+
+print(' '.join(strings))
+
+
+
+
+
+
+
+
+
+
+
