@@ -1,0 +1,22 @@
+population = list(map(int, input().split(', ')))
+minimum_wealth = int(input())
+
+needed_sum = minimum_wealth * len(population)
+sum_of_wealth = sum(map(int, population))
+
+if sum_of_wealth < needed_sum:
+    print('No equal distribution possible')
+
+else:
+    for i in range(len(population)):
+        wealthiest = max(population)
+        wealthiest_index = population.index(wealthiest)
+        money_to_give = wealthiest - minimum_wealth
+        if population[i]< minimum_wealth:
+            add_money = minimum_wealth - population[i]
+            population[i] += add_money
+            population[wealthiest_index] -= add_money
+
+    print(population)
+
+
